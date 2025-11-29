@@ -1,4 +1,4 @@
-# 🛡️ Project: Internal Network Penetration Test (Capstone)
+# Project: Internal Network Penetration Test (Capstone)
 
 ## 1. Executive Summary
 **Objective:** Conduct a black-box penetration test on the client's internal network (Subnets: 10.6.6.0/24 and 172.17.0.0/24) to identify vulnerabilities in web applications, network services, and traffic security.
@@ -8,7 +8,7 @@
 
 ## 2. Technical Findings & Walkthrough
 
-### 🚩 Challenge 1: Web Application SQL Injection
+### Challenge 1: Web Application SQL Injection
 **Vulnerability:** SQL Injection (SQLi)
 **Severity:** Critical
 **Host:** 10.6.6.100 (Web Server)
@@ -48,7 +48,7 @@ I began by browsing to the target web server. After logging in with default cred
 
 ---
 
-### 🚩 Challenge 2: Web Server Misconfiguration
+### Challenge 2: Web Server Misconfiguration
 **Vulnerability:** Directory Indexing / Information Disclosure
 **Severity:** Medium
 **Host:** 10.6.6.100
@@ -73,7 +73,7 @@ I performed a vulnerability scan using `nmap` scripts to enumerate the HTTP serv
 
 ---
 
-### 🚩 Challenge 3: Unsecured SMB Shares
+### Challenge 3: Unsecured SMB Shares
 **Vulnerability:** Anonymous SMB Access
 **Severity:** High
 **Host:** 10.6.6.23
@@ -108,7 +108,7 @@ I scanned the network `10.6.6.0/24` to identify file sharing services.
 
 ---
 
-### 🚩 Challenge 4: Unencrypted Traffic Analysis (PCAP)
+### Challenge 4: Unencrypted Traffic Analysis (PCAP)
 **Vulnerability:** Cleartext Data Transmission (HTTP)
 **Severity:** High
 
