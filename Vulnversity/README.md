@@ -51,7 +51,7 @@ Figure 2: Gobuster scan revealing the /internal/ directory.
 **Exploitation Steps**:
 
 1. **Fuzzing**: Burp Intruder revealed that while `.php` was blocked, `.phtml` was allowed.
-2. **Weaponization**: I renamed a PHP reverse shell script to `php-reverse-shell.phtml` and configured it to connect back to my attack machine.
+2. **Weaponization**: I renamed a [PHP reverse shell script](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) to `php-reverse-shell.phtml` and configured it to connect back to my attack machine.
 3. **Execution**: I started a Netcat listener (`nc -lvnp 1234`) and navigated to the uploaded file location.
 4. **Access**: The shell executed successfully, granting me access as the user `bill`.
    **Proof of Concept**:
