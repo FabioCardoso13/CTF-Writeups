@@ -58,6 +58,7 @@ Figure 2: Gobuster scan revealing the /internal/ directory.
    **User Flag**: `8bd7992fbe8a6ad22a63361004cfcedb`
 
 Figure 3: Successful reverse shell connection granting user access.
+
 ![Reverse shell connection](img/Reverse_Shell_Connection.png)
 
 **Remediation**:
