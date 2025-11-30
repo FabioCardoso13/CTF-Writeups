@@ -27,7 +27,7 @@ nmap -sV 10.80.136.49
 * **OS**: Ubuntu.
 
 Figure 1: Nmap service version scan output showing open ports.
-!\[Nmap scan output](img/Captura%20de%20ecr%C3%A3%202025-11-29%20232854.png)
+![Nmap scan output](img/Nmap_Scan_Output.png)
 
 ### Step 2: Web Directory Enumeration
 
@@ -41,7 +41,7 @@ gobuster dir -u http://10.80.136.49:3333 -w /usr/share/seclists/Discovery/Web-Co
 **Findings**: I discovered a hidden directory `/internal/`, which hosted a file upload form.
 
 Figure 2: Gobuster scan revealing the /internal/ directory.
-!\[Gobuster scan output](img/Gobuster\_Scan\_Output.png)
+![Gobuster scan output](img/Gobuster_Scan_Output.png)
 
 ### Step 3: Initial Compromise (File Upload Bypass)
 
@@ -58,7 +58,7 @@ Figure 2: Gobuster scan revealing the /internal/ directory.
    **User Flag**: `8bd7992fbe8a6ad22a63361004cfcedb`
 
 Figure 3: Successful reverse shell connection granting user access.
-!\[Reverse shell connection](img/Reverse\_Shell\_Connection.png)
+![Reverse shell connection](img/Reverse_Shell_Connection.png)
 
 **Remediation**:
 
@@ -106,7 +106,7 @@ find / -user root -perm -4000 -print 2>/dev/null
 **Root Flag**: `a58ff8579f0a9270368d33a9966c7fd5`
 
 Figure 4: Exploiting systemctl to read the root flag.
-!\[systemctl exploit](img/systemctl\_exploit.png)
+![systemctl exploit](img/systemctl_exploit.png)
 
 **Remediation**:
 
