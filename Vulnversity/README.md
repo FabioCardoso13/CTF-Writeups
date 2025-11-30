@@ -69,7 +69,9 @@ Figure 3: Successful reverse shell connection granting user access.
 ### Step 4: Privilege Escalation
 
 **Vulnerability**: SUID Binary Misconfiguration (systemctl)
+
 **Severity**: Critical
+
 **Methodology**: I searched the system for files with the SUID bit set, which allows a user to execute a file with the permissions of its owner (root).
 
 ```bash
