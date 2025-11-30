@@ -58,8 +58,8 @@ Figure 2: Gobuster scan revealing the /internal/ directory.
 2. **Weaponization**: I renamed a [PHP reverse shell script](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) to `php-reverse-shell.phtml` and configured it to connect back to my attack machine.
 3. **Execution**: I started a Netcat listener (`nc -lvnp 1234`) and navigated to the uploaded file location.
 4. **Access**: The shell executed successfully, granting me access as the user `bill`.
-   **Proof of Concept**:
-   **User Flag**: `8bd7992fbe8a6ad22a63361004cfcedb`
+   
+**User Flag**: `8bd7992fbe8a6ad22a63361004cfcedb`
 
 Figure 3: Successful reverse shell connection granting user access.
 
