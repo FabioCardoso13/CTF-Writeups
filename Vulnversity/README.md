@@ -32,6 +32,7 @@ Figure 1: Nmap service version scan output showing open ports.
 ### Step 2: Web Directory Enumeration
 
 **Objective**: Locate hidden directories on the custom web server port.
+
 **Methodology**: Using gobuster, I brute-forced directories targeting port 3333 using a common wordlist.
 
 ```bash
@@ -46,8 +47,11 @@ Figure 2: Gobuster scan revealing the /internal/ directory.
 ### Step 3: Initial Compromise (File Upload Bypass)
 
 **Vulnerability**: Unrestricted File Upload / Extension Bypass
+
 **Severity**: Critical
+
 **Methodology**: I attempted to upload a PHP reverse shell, but the server blocked the standard `.php` extension. I used Burp Suite to fuzz the upload form and identify allowed extensions.
+
 **Exploitation Steps**:
 
 1. **Fuzzing**: Burp Intruder revealed that while `.php` was blocked, `.phtml` was allowed.
@@ -79,6 +83,7 @@ find / -user root -perm -4000 -print 2>/dev/null
 ```
 
 **Findings**: The binary `/bin/systemctl` stood out as having SUID permissions enabled. This is dangerous as systemctl can manage system services.
+
 **Exploitation Steps**: I consulted GTFOBins and created a malicious service file to read the root flag and output it to a temporary file.
 
 1. **Create Exploit Service**:
