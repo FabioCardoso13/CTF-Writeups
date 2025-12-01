@@ -5,15 +5,11 @@
 **Tools Used:** Nmap, Gobuster, Searchsploit, Hashcat, GTFOBins
 **Vulnerability Explored:** SQL Injection (CVE-2019-9053) \& SUID Misconfiguration
 
----
-
 ## 1\. Executive Summary
 
 **Objective:** Conduct a black-box penetration test on the target host "Simple CTF" to identify vulnerabilities, gain initial access via web exploitation, and escalate privileges to root.
 
 **Result:** The assessment identified a critical **SQL Injection** vulnerability in the "CMS Made Simple" application (CVE-2019-9053), which allowed for credential dumping. Furthermore, a misconfigured **sudo permission** on the `vim` binary allowed for privilege escalation to the root user.
-
----
 
 ## 2\. Technical Findings \& Walkthrough
 
@@ -35,8 +31,6 @@ nmap -sV 10.65.163.53
   * `21` (FTP): Anonymous login enabled.
   * `80` (HTTP): Apache Web Server.
   * `2222` (SSH): Running on a non-standard port.
-
-
 
 ![Nmap Scan Results](img/nmap_scan_results.png)
 
@@ -77,8 +71,6 @@ Research indicated that CMS Made Simple versions `< 2.2.10` are vulnerable to SQ
 
    * **Salt:** `1dac0d92e9fa6bb2`
    * **Hash:** `0c01f4468bd75d7a84c7eb73846e8d96`
-
-
 
 ![SQLi Exploit Results](img/sqli_exploit_image.png)
 
@@ -145,8 +137,6 @@ sudo vim -c ':!/bin/sh'
 
 
 ![Root Shell and Flag](img/root_shell_image.png)
-
----
 
 ## 3\. Remediation \& Recommendations
 
