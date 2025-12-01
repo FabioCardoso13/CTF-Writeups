@@ -109,6 +109,27 @@ nmap -p 445 --script smb-vuln\* 10.82.189.71
 
 `flag{admin\_documents\_can\_be\_valuable}`
 
+## 3\. Remediation \& Recommendations
+
+1. Patch MS17-010 (Critical)
+   The target system is vulnerable to EternalBlue, a buffer overflow in the SMBv1 protocol. This was the primary entry point for the compromise.
+
+Immediate Action: Apply Microsoft Security Bulletin MS17-010 immediately.
+
+Configuration Change: Disable SMBv1 entirely via the Windows Registry or Group Policy, as it is an obsolete and insecure protocol. Ensure the network uses SMBv2 or SMBv3.
+
+2. Enforce Strong Password Policies (High)
+   The user Jon had a weak password (alqfna22) that was cracked instantly using a public rainbow table.
+
+Action: Implement a password policy requiring a minimum length (e.g., 14+ characters) and complexity (uppercase, lowercase, numbers, and symbols).
+
+Action: Enforce regular password rotation and audit user accounts for weak credentials.
+
+3. Principle of Least Privilege (Medium)
+   The successful exploitation immediately granted NT AUTHORITY\\SYSTEM (highest level) privileges.
+
+Action: Ensure that services and applications run with the minimum necessary permissions (Service Accounts) rather than as System or Administrator, to limit the impact of a potential compromise.
+
 ### Disclaimer
 
 This project was performed on the TryHackMe "Blue" room for educational purposes to demonstrate the impact of unpatched SMB vulnerabilities.
