@@ -57,6 +57,7 @@ gobuster dir -u http://10.65.163.53/ -w /usr/share/seclists/Discovery/Web-Conten
 
 
 ![Gobuster Discovery](img/gobuster_output_image.png)
+![Gobuster Discovery](img/page_version.png)
 
 ### Step 2: Exploitation (SQL Injection)
 
