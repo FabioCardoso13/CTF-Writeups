@@ -38,7 +38,7 @@ nmap -sV 10.65.163.53
 
 
 
-!\[Nmap Scan Results](img/nmap\_scan\_results.png)
+![Nmap Scan Results](img/nmap_scan_results.png)
 
 * **FTP Analysis:**
 
@@ -46,7 +46,7 @@ nmap -sV 10.65.163.53
   * **Content:** The note hinted at a weak system password and a user named "Mitch".
 
 
-`!\[FTP File Content](img/ftp\_file\_content.png)`
+![FTP File Content](img/ftp_file_content.png)
 
 * **Web Enumeration:**
 
@@ -59,7 +59,7 @@ gobuster dir -u http://10.65.163.53/ -w /usr/share/seclists/Discovery/Web-Conten
 * **Result:** The directory `/simple` hosted a **CMS Made Simple** application, version `2.2.8`.
 
 
-`!\[Gobuster Discovery](img/gobuster\_output\_image.png)`
+![Gobuster Discovery](img/gobuster_output_image.png)
 
 ### Step 2: Exploitation (SQL Injection)
 
@@ -80,7 +80,7 @@ Research indicated that CMS Made Simple versions `< 2.2.10` are vulnerable to SQ
 
 
 
-`!\[SQLi Exploit Results](img/sqli\_exploit\_image.png)`
+![SQLi Exploit Results](img/sqli_exploit_image.png)
 
 3. **Cracking:** I used **Hashcat** to crack the MD5 salt/hash combination.
 
@@ -91,7 +91,7 @@ hashcat -O -a 0 -m 20 0c01f4468bd75d7a84c7eb73846e8d96:1dac0d92e9fa6bb2 /usr/sha
 * **Cracked Password:** `secret`
 
 
-`!\[Hashcat Crack Result](img/hashcat\_result\_image.png)`
+![Hashcat Crack Result](img/hashcat_result_image.png)
 
 ### Step 3: Initial Access (SSH)
 
@@ -111,7 +111,7 @@ ssh -p 2222 mitch@10.65.163.53
 * **Enumeration:** Listing the home directory revealed another user named `sunbath`.
 
 
-`!\[Successful SSH Login](img/ssh\_login\_image.png)`
+![Successful SSH Login](img/ssh_login_image.png)
 
 ### Step 4: Privilege Escalation
 
@@ -129,7 +129,7 @@ sudo -l
 * User `mitch` can run `/usr/bin/vim` as `root` without a password.
 
 
-`!\[Sudo Permissions](img/sudo\_permissions\_image.png)`
+![Sudo Permissions](img/sudo_permissions_image.png)
 
 **Exploitation:**
 I consulted **GTFOBins** to identify a privilege escalation technique for `vim`.
@@ -144,7 +144,7 @@ sudo vim -c ':!/bin/sh'
 * **Root Flag:** Located at `/root/root.txt` -> `W3ll d0n3. You made it!`
 
 
-`!\[Root Shell and Flag](img/root\_shell\_image.png)`
+![Root Shell and Flag](img/root_shell_image.png)
 
 ---
 
