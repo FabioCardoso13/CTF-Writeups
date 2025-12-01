@@ -1,8 +1,11 @@
 # Project: Simple CTF Penetration Test (TryHackMe)
 
 **Date:** December 2025
+
 **Target:** `10.65.163.53` (Simple CTF)
+
 **Tools Used:** Nmap, Gobuster, Searchsploit, Hashcat, GTFOBins
+
 **Vulnerability Explored:** SQL Injection (CVE-2019-9053) \& SUID Misconfiguration
 
 ## 1\. Executive Summary
