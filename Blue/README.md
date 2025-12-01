@@ -33,7 +33,7 @@ nmap -p 445 --script smb-vuln\* 10.82.189.71
 
 **Vulnerability:** The Nmap script engine confirmed the machine is vulnerable to MS17-010 (EternalBlue).
 
-!\[Nmap vulnerability scan result](img/nmap\_vuln\_scan.png)
+![Nmap vulnerability scan result](img/nmap_vuln_scan.png)
 
 ### Step 2: Exploitation (EternalBlue)
 
@@ -52,7 +52,7 @@ nmap -p 445 --script smb-vuln\* 10.82.189.71
 
 **Execution:** Ran the exploit, which successfully triggered the buffer overflow and returned a command shell.
 
-!\[Metasploit exploit success](img/metasploit\_success.png)
+![Metasploit exploit success](img/metasploit_success.png)
 
 ### Step 3: Post-Exploitation \& Privilege Escalation
 
@@ -66,7 +66,7 @@ nmap -p 445 --script smb-vuln\* 10.82.189.71
 * **Session Management:** Selected the active session created by the exploit.
 * **Verification:** Ran `getsystem` and `whoami` to confirm `NT AUTHORITY\\SYSTEM` privileges.
 
-!\[Meterpreter getsystem output](img/getsystem\_output.png)
+![Meterpreter getsystem output](img/getsystem_output.png)
 
 * **Migration:** To ensure stability, I listed running processes (`ps`) and migrated into a stable system process:
 * **Target Process:** `Ec2Config.exe` (PID: 1596) running as SYSTEM.
@@ -87,7 +87,7 @@ nmap -p 445 --script smb-vuln\* 10.82.189.71
 * **User Identification:** Identified a non-default user named **Jon**.
 * **Cracking:** Copied the NTLM hash and used **CrackStation** (an online rainbow table) to recover the plaintext password.
 
-!\[CrackStation result](img/crackstation\_result.png)
+![CrackStation result](img/crackstation_result.png)
 
 **Cracked Password:** `alqfna22`
 
