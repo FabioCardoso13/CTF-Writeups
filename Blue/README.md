@@ -1,8 +1,11 @@
 # Project: Blue Penetration Test (TryHackMe)
 
 **Date:** 1st November 2025
+
 **Target:** 10.82.189.71 (Blue)
+
 **Tools Used:** Nmap, Metasploit, Meterpreter, CrackStation
+
 **Vulnerability Explored:** MS17-010 (EternalBlue)
 
 ## 1\. Executive Summary
