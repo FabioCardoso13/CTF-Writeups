@@ -8,6 +8,7 @@
 ## 1\. Executive Summary
 
 **Objective:** Conduct a black-box penetration test on the target host "Blue" to identify vulnerabilities, gain administrative access, and demonstrate post-exploitation capabilities such as password cracking and flag retrieval.
+
 **Result:** The assessment identified a critical **SMBv1 vulnerability (MS17-010)** known as "EternalBlue." This allowed for unauthenticated Remote Code Execution (RCE), resulting in immediate `NT AUTHORITY\\SYSTEM` access.
 
 ---
