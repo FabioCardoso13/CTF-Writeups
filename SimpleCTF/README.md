@@ -1,4 +1,4 @@
-# 🛡️ Project: Simple CTF Penetration Test (TryHackMe)
+# Project: Simple CTF Penetration Test (TryHackMe)
 
 **Date:** December 2025
 **Target:** `10.65.163.53` (Simple CTF)
