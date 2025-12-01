@@ -82,7 +82,7 @@ nmap -p 445 --script smb-vuln\* 10.82.189.71
 
 * **Hashdump:** Ran the `hashdump` command.
 
-!\[Hashdump output](hashdump\_output.png)
+![Hashdump output](hashdump_output.png)
 
 * **User Identification:** Identified a non-default user named **Jon**.
 * **Cracking:** Copied the NTLM hash and used **CrackStation** (an online rainbow table) to recover the plaintext password.
