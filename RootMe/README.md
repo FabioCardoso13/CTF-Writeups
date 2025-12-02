@@ -68,7 +68,7 @@ gobuster dir -u http://10.64.132.213/ -w /usr/share/seclists/Discovery/Web-Conte
 
 **Proof of Concept:** I located the user flag in the system.
 
-**User Flag:** `THM{y0u\_g0t\_a\_sh3ll}`.
+**User Flag:** `THM{y0u_g0t_a_sh3ll}`.
 
 
 ![User Flag Found](img/user_flag.png)
@@ -105,7 +105,7 @@ find / -user root -perm /4000 2>/dev/null
 
 **Root Flag:** Located at `/root/root.txt`.
 
-**Flag:** `THM{pr1v1l3g3\_3sc4l4t10n}`.
+**Flag:** `THM{pr1v1l3g3_3sc4l4t10n}`.
 
 
 ![Root Flag Found](img/root_flag.png)
