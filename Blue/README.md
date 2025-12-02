@@ -100,17 +100,17 @@ nmap -p 445 --script smb-vuln* 10.82.189.71
 
 **Findings:** Using the elevated shell, I navigated the file system to locate the three required flags:
 
-**Flag 1 (System Root):** Found at `C:\\`
+**Flag 1 (System Root):** Found at `C:\`
 
-`flag{access\_the\_machine}`
+`flag{access_the_machine}`
 
-**Flag 2 (SAM Location):** Found at `C:\\Windows\\System32\\config`
+**Flag 2 (SAM Location):** Found at `C:\Windows\System32\config`
 
-`flag{sam\_database\_elevated\_access}`
+`flag{sam_database_elevated_access}`
 
-**Flag 3 (Admin Documents):** Found at `C:\\Users\\Jon\\Documents`
+**Flag 3 (Admin Documents):** Found at `C:\Users\Jon\Documents`
 
-`flag{admin\_documents\_can\_be\_valuable}`
+`flag{admin_documents_can_be_valuable}`
 
 ## 3\. Remediation \& Recommendations
 
