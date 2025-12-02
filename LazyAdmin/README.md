@@ -11,6 +11,7 @@
 ## 1\. Executive Summary
 
 **Objective:** Conduct a black-box penetration test on the target host "LazyAdmin" to identify vulnerabilities, gain initial access, and escalate privileges to root.
+
 **Result:** The assessment identified a critical **Information Disclosure** vulnerability where a database backup was left in a public directory. This led to credential theft, Remote Code Execution (RCE) via the SweetRice CMS, and finally Privilege Escalation to root via a writable script executed with **sudo** privileges.
 
 
@@ -33,14 +34,14 @@ nmap -sV 10.65.136.171
 * **Open Ports:** Port 80 (Apache Web Server) and Port 22 (SSH).
 
 
-!\[Nmap Scan Results](img/nmap\_results.png)
+![Nmap Scan Results](img/nmap_results.png)
 
 * **Web Enumeration:** Using Gobuster, I discovered a `/content/` directory. Further scanning revealed an exposed backup directory.
 
 ```bash
 gobuster dir -u http://10.65.136.171/content/ -w /usr/share/seclists/Discovery/Web-Content/common.txt
 ```
-!\[Gobuster Discovery](img/gobuster\_discovery.png)
+![Gobuster Discovery](img/gobuster_discovery.png)
 
 * **Critical Find:** `/content/inc/mysql\_backup/` containing a SQL backup file.
 
@@ -59,14 +60,14 @@ I downloaded and analyzed the SQL backup file found in the public directory.
 * The database contained an administrator hash: `manager:42f749ade7f9e195bf475f37a44cafcb`.
 
 
-!\[SQL Backup Contents](img/sql\_backup.png)
+![SQL Backup Contents](img/sql_backup.png)
 
 * **Cracking:** Using CrackStation, I successfully cracked the MD5 hash.
 
   * **Password:** `Password123`
 
 
-!\[CrackStation Result](img/crackstation\_result.png)
+![CrackStation Result](img/crackstation_result.png)
 
 
 
@@ -79,7 +80,7 @@ I downloaded and analyzed the SQL backup file found in the public directory.
 I used the discovered credentials to log into the SweetRice CMS admin panel at `/content/as/`. I identified the "Ads" feature, which allows the insertion of arbitrary code.
 
 
-!\[SweetRice Admin Panel](img/sweetrice\_panel.png)
+![SweetRice Admin Panel](img/sweetrice_panel.png)
 
 **Exploitation Steps:**
 
@@ -88,14 +89,14 @@ I used the discovered credentials to log into the SweetRice CMS admin panel at `
 3. **Access:** The server connected back to my machine, granting a shell as `www-data`.
 
 
-!\[Initial Shell](img/initial\_shell.png)
+![Initial Shell](img/initial_shell.png)
 
 **Proof of Concept:**
 
 * **User Flag:** Located at `/home/itguy/user.txt` -> `THM{63e5bce9271952aad1113b6f1ac28a07}`
 
 
-!\[User Flag](img/user\_flag.png)
+![User Flag](img/user_flag.png)
 
 
 
@@ -116,7 +117,7 @@ The user can run `/usr/bin/perl /home/itguy/backup.pl` as root without a passwor
 
 
 
-!\[Sudo Permissions](img/sudo\_permissions.png)
+![Sudo Permissions](img/sudo_permissions.png)
 
 **Exploitation:**
 
@@ -137,14 +138,14 @@ sudo /usr/bin/perl /home/itguy/backup.pl
 5. **Root Access:** The Perl script executed my malicious shell script as root.
 
 
-!\[Root Shell](img/root\_shell.png)
+![Root Shell](img/root_shell.png)
 
 **Proof of Concept:**
 
 * **Root Flag:** Located at `/root/root.txt` -> `THM{6637f41d0177b6f37cb20d775124699f}`
 
 
-!\[Root Flag](img/root\_flag.png)
+![Root Flag](img/root_flag.png)
 
 ---
 
