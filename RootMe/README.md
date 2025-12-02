@@ -36,7 +36,7 @@ Open Ports: 2 ports were identified as open.
 * **80 (HTTP):** Apache Web Server version 2.4.41.
 
 
-!\[Nmap Scan Results](img/nmap\_scan.png)
+![Nmap Scan Results](img/nmap_scan.png)
 
 **Web Enumeration:** Using **Gobuster**, I searched for hidden directories on the web server.
 
@@ -47,10 +47,10 @@ gobuster dir -u http://10.64.132.213/ -w /usr/share/seclists/Discovery/Web-Conte
 **Result:** I discovered a hidden directory `/panel/` and an `/uploads/` directory. The `/panel/` page contained a file upload form.
 
 
-!\[Gobuster Scan Results](img/gobuster\_scan.png)
+![Gobuster Scan Results](img/gobuster_scan.png)
 
 
-!\[File Upload Panel](img/upload\_panel.png)
+![File Upload Panel](img/upload_panel.png)
 
 ### Step 2: Initial Compromise (File Upload Bypass)
 
@@ -71,7 +71,7 @@ gobuster dir -u http://10.64.132.213/ -w /usr/share/seclists/Discovery/Web-Conte
 **User Flag:** `THM{y0u\_g0t\_a\_sh3ll}`.
 
 
-!\[User Flag Found](img/user\_flag.png)
+![User Flag Found](img/user_flag.png)
 
 ### Step 3: Privilege Escalation
 
@@ -88,7 +88,7 @@ find / -user root -perm /4000 2>/dev/null
 
 
 
-!\[SUID Python Found](img/suid\_python.png)
+![SUID Python Found](img/suid_python.png)
 
 **Exploitation:** I consulted **GTFOBins** to identify a privilege escalation technique for Python SUID.
 
@@ -101,14 +101,14 @@ find / -user root -perm /4000 2>/dev/null
 **Result:** The command successfully spawned a shell as `root`.
 
 
-!\[Root Shell](img/root\_shell.png)
+![Root Shell](img/root_shell.png)
 
 **Root Flag:** Located at `/root/root.txt`.
 
 **Flag:** `THM{pr1v1l3g3\_3sc4l4t10n}`.
 
 
-!\[Root Flag Found](img/root\_flag.png)
+![Root Flag Found](img/root_flag.png)
 
 ## 3\. Remediation \& Recommendations
 
