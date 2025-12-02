@@ -65,7 +65,7 @@ nmap -p 445 --script smb-vuln* 10.82.189.71
 
 **Steps Taken:**
 
-* **Shell Conversion:** I utilized the post-exploitation module `post/multi/manage/shell\_to\_meterpreter`.
+* **Shell Conversion:** I utilized the post-exploitation module `post/multi/manage/shell_to_meterpreter`.
 * **Session Management:** Selected the active session created by the exploit.
 * **Verification:** Ran `getsystem` and `whoami` to confirm `NT AUTHORITY\\SYSTEM` privileges.
 
