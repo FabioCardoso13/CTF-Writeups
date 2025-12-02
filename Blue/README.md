@@ -12,7 +12,7 @@
 
 **Objective:** Conduct a black-box penetration test on the target host "Blue" to identify vulnerabilities, gain administrative access, and demonstrate post-exploitation capabilities such as password cracking and flag retrieval.
 
-**Result:** The assessment identified a critical **SMBv1 vulnerability (MS17-010)** known as "EternalBlue." This allowed for unauthenticated Remote Code Execution (RCE), resulting in immediate `NT AUTHORITY\\SYSTEM` access.
+**Result:** The assessment identified a critical **SMBv1 vulnerability (MS17-010)** known as "EternalBlue." This allowed for unauthenticated Remote Code Execution (RCE), resulting in immediate `NT AUTHORITY\SYSTEM` access.
 
 ---
 
@@ -67,7 +67,7 @@ nmap -p 445 --script smb-vuln* 10.82.189.71
 
 * **Shell Conversion:** I utilized the post-exploitation module `post/multi/manage/shell_to_meterpreter`.
 * **Session Management:** Selected the active session created by the exploit.
-* **Verification:** Ran `getsystem` and `whoami` to confirm `NT AUTHORITY\\SYSTEM` privileges.
+* **Verification:** Ran `getsystem` and `whoami` to confirm `NT AUTHORITY\SYSTEM` privileges.
 
 ![Meterpreter getsystem output](img/getsystem_output.png)
 
@@ -129,7 +129,7 @@ The user Jon had a weak password (alqfna22) that was cracked instantly using a p
 * Enforce regular password rotation and audit user accounts for weak credentials.
 
 ### 3. Principle of Least Privilege (Medium)
-The successful exploitation immediately granted NT AUTHORITY\\SYSTEM (highest level) privileges.
+The successful exploitation immediately granted NT AUTHORITY\SYSTEM (highest level) privileges.
 
 **Action:** Ensure that services and applications run with the minimum necessary permissions (Service Accounts) rather than as System or Administrator, to limit the impact of a potential compromise.
 
