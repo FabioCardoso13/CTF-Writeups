@@ -1,8 +1,11 @@
 # Project: RootMe Penetration Test (TryHackMe)
 
 **Date:** December 2025
+
 **Target:** 10.64.132.213 (RootMe)
+
 **Tools Used:** Nmap, Gobuster, Netcat, GTFOBins
+
 **Vulnerability Explored:** Unrestricted File Upload \& SUID Privilege Escalation
 
 ## 1\. Executive Summary
