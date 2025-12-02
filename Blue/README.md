@@ -27,7 +27,7 @@ I performed a service scan using **Nmap** to identify active services and potent
 
 ```bash
 nmap -sV 10.82.189.71
-nmap -p 445 --script smb-vuln\* 10.82.189.71
+nmap -p 445 --script smb-vuln* 10.82.189.71
 ```
 
 **Findings:**
