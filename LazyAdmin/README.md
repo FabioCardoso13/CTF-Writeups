@@ -1,8 +1,11 @@
 # Project: LazyAdmin Penetration Test (TryHackMe)
 
 **Date:** December 2025
+
 **Target:** 10.65.136.171 (LazyAdmin)
+
 **Tools Used:** Nmap, Gobuster, CrackStation, Netcat
+
 **Vulnerability Explored:** Information Disclosure \& SUID Misconfiguration
 
 ## 1\. Executive Summary
