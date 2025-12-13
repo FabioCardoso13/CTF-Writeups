@@ -11,6 +11,7 @@
 ## 1\. Executive Summary
 
 **Objective:** Conduct a black-box penetration test on the target host "Ice" to identify vulnerabilities, gain initial access via a media server exploit, and escalate privileges to SYSTEM.
+
 **Result:** The assessment identified a critical **Buffer Overflow** vulnerability in the Icecast streaming server, allowing for Remote Code Execution (RCE). Furthermore, a **User Account Control (UAC) Bypass** vulnerability allowed for privilege escalation to `NT AUTHORITY\\SYSTEM`, resulting in full compromise and credential theft.
 
 ---
@@ -42,7 +43,7 @@ sudo nmap -sV 10.66.159.154
   * **Hostname:** DARK-PC.
   * **OS:** Windows 7 / Server 2008 R2.
 
-!\[Nmap Scan Results](img/nmap\_results.png)
+![Nmap Scan Results](img/nmap_results.png)
 
 * **Vulnerability Analysis:** Research indicated that the version of Icecast running on port 8000 is vulnerable to a Header Overwrite Buffer Overflow (CVE-2004-1561) with a CVSS score of 7.5.
 
@@ -71,7 +72,7 @@ sudo nmap -sV 10.66.159.154
 
 3. **Execution:** The exploit successfully triggered the buffer overflow and opened a Meterpreter session running as the user `Dark`.
 
-   !\[Initial Meterpreter Session](img/meterpreter\_initial\_session.png)
+   ![Initial Meterpreter Session](img/meterpreter_initial_session.png)
 
    ### Step 3: Privilege Escalation (UAC Bypass)
 
@@ -81,10 +82,10 @@ sudo nmap -sV 10.66.159.154
   **Methodology:** Although I had a shell, I was running as a standard user. I utilized the Local Exploit Suggester module to find an escalation path.
 
   ```bash
-  run post/multi/recon/local\_exploit\_suggester
+  run post/multi/recon/local_exploit_suggester
   ```
 
-  **Findings:** The system was vulnerable to `exploit/windows/local/bypassuac\_eventvwr`.
+  **Findings:** The system was vulnerable to `exploit/windows/local/bypassuac_eventvwr`.
 
   !\[UAC Bypass Suggestion](img/local\_exploit\_suggester.png)
 
@@ -94,7 +95,7 @@ sudo nmap -sV 10.66.159.154
 2. **Execution:**
 
    &nbsp;   ```bash
-       use exploit/windows/local/bypassuac\_eventvwr
+       use exploit/windows/local/bypassuac_eventvwr
        set SESSION 1
        run
        ```
@@ -102,7 +103,7 @@ sudo nmap -sV 10.66.159.154
 * **Result:** The exploit bypassed UAC and returned a new high-integrity Meterpreter session.
 * **Verification:** Running `getprivs` confirmed I had `SeTakeOwnershipPrivilege`, indicating administrative rights.
 
-  !\[SYSTEM Meterpreter Session](img/system\_meterpreter\_session.png)
+  ![SYSTEM Meterpreter Session](img/system_meterpreter_session.png)
 
   ### Step 4: Credential Looting (Mimikatz)
 
@@ -124,7 +125,7 @@ sudo nmap -sV 10.66.159.154
 
    &nbsp;   ```bash
        load kiwi
-       creds\_all
+       creds_all
        ```
 
    **Loot:**
@@ -132,7 +133,7 @@ sudo nmap -sV 10.66.159.154
 * **Username:** `Dark`
 * **Password:** `Password01!`
 
-  !\[Mimikatz Credential Dump](img/mimikatz\_credential\_dump.png)
+  ![Mimikatz Credential Dump](img/mimikatz_credential_dump.png)
 
   ### Step 5: Post-Exploitation
 
@@ -143,7 +144,7 @@ sudo nmap -sV 10.66.159.154
 * **Hash Dumping:** Verified ability to dump the SAM database using `hashdump`.
 * **Remote Desktop:** With the credentials `Dark` / `Password01!`, RDP access is now possible via port `3389`.
 
-  !\[RDP Access](img/rdp\_login.png)
+  ![RDP Access](img/rdp_login.png)
 
 * **Capabilities:** Verified access to:
 
