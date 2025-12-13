@@ -1,16 +1,18 @@
 # Project: Pickle Rick Penetration Test (TryHackMe)
 
 **Date:** December 2025
+
 **Target:** 10.64.153.135 (Pickle Rick)
+
 **Tools Used:** Nmap, Gobuster, Nikto, curl, Netcat
+
 **Vulnerability Explored:** OS Command Injection
 
 ## 1\. Executive Summary
 
 **Objective:** Conduct a black-box penetration test on the target host "Pickle Rick" to identify vulnerabilities, gain initial access via a web application flaw, and retrieve the three hidden ingredients (flags).
+
 **Result:** The assessment identified critical **Information Disclosure** vulnerabilities via HTML comments and file enumeration, leading to the discovery of credentials. These credentials allowed access to a web panel containing a critical **OS Command Injection** vulnerability, which was successfully exploited to gain a reverse shell and retrieve all flags.
-
-
 
 ## 2\. Technical Findings \& Walkthrough
 
@@ -80,7 +82,7 @@ The `/portal.php` page contained a command input box. I tested for command injec
 **Enumeration:**
 I listed the files in the current directory.
 **Command:** `ls -la`
-**Result:** Discovered a file named `Sup3rS3cretPickl3Ingred.txt`. But when I ran "cat Sup3rS3cretPickl3Ingred.txt" it output this:
+**Result:** Discovered a file named `Sup3rS3cretPickl3Ingred.txt`. But when I ran `cat Sup3rS3cretPickl3Ingred.txt` it output this:
 
 ![Command disabled](img/command_disabled.png)
 
