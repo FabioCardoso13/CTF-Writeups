@@ -1,8 +1,11 @@
 # Project: Ice Penetration Test (TryHackMe)
 
 **Date:** December 2025
+
 **Target:** 10.66.159.154 (Dark-PC)
+
 **Tools Used:** Nmap, Metasploit, Meterpreter, Mimikatz (Kiwi)
+
 **Vulnerability Explored:** Icecast Header Overwrite (CVE-2004-1561) \& UAC Bypass
 
 ## 1\. Executive Summary
