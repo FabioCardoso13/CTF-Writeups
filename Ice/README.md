@@ -60,7 +60,7 @@ sudo nmap -sV 10.66.159.154
 1. **Module Selection:**
 
 &nbsp;   ```bash
-    use exploit/windows/http/icecast\_header
+    use exploit/windows/http/icecast_header
     ```
 
 2. **Configuration:**
@@ -149,7 +149,7 @@ sudo nmap -sV 10.66.159.154
 * **Capabilities:** Verified access to:
 
   * `screenshare`: View the user's desktop.
-  * `record\_mic`: Record audio.
+  * `record_mic`: Record audio.
   * `timestomp`: Manipulate file timestamps to hide activity.
 
   ## 3\. Remediation \& Recommendations
