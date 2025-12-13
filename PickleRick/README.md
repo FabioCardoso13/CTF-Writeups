@@ -84,7 +84,7 @@ I listed the files in the current directory.
 **Command:** `ls -la`
 **Result:** Discovered a file named `Sup3rS3cretPickl3Ingred.txt`. But when I ran `cat Sup3rS3cretPickl3Ingred.txt` it output this:
 
-![Command disabled](img/command_disabled.png)
+![Command disabled](img/command_disabled_message.png)
 
 
 
