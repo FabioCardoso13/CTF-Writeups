@@ -126,7 +126,7 @@ To move freely on the system, I leveraged the command injection to establish a r
   * **Command:** `sudo -l`
   * **Result:** `www-data` can run `(ALL : ALL) NOPASSWD: ALL`. This is a critical misconfiguration allowing instant root access.
 
-!\[Sudo Permissions](img/sudo\_permissions.png)
+![Sudo Permissions](img/sudo_permissions.png)
 
   * **Root Access:** `sudo bash`
   * **Flag:** `cat /root/3rd.txt` -> `fleeb juice`.
