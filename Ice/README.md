@@ -85,7 +85,7 @@ sudo nmap -sV 10.66.159.154
 
   **Findings:** The system was vulnerable to `exploit/windows/local/bypassuac_eventvwr`.
 
-  !\[UAC Bypass Suggestion](img/local\_exploit\_suggester.png)
+  ![UAC Bypass Suggestion](img/local_exploit_suggester.png)
 
   **Exploitation Steps:**
 
