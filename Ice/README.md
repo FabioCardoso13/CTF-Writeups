@@ -14,8 +14,6 @@
 
 **Result:** The assessment identified a critical **Buffer Overflow** vulnerability in the Icecast streaming server, allowing for Remote Code Execution (RCE). Furthermore, a **User Account Control (UAC) Bypass** vulnerability allowed for privilege escalation to `NT AUTHORITY\\SYSTEM`, resulting in full compromise and credential theft.
 
----
-
 ## 2\. Technical Findings \& Walkthrough
 
 ### Step 1: Reconnaissance \& Enumeration
