@@ -66,7 +66,7 @@ sudo nmap -sV 10.66.159.154
    * Set `RHOSTS` to `10.66.159.154`.
    * Set `LHOST` to my attacker IP (`192.168.151.228`).
 
-   !\[Icecast Exploit Setup](img/metasploit\_icecast\_exploit.png)
+   ![Icecast Exploit Setup](img/metasploit_icecast_exploit.png)
 
 3. **Execution:** The exploit successfully triggered the buffer overflow and opened a Meterpreter session running as the user `Dark`.
 
