@@ -4,7 +4,7 @@
 
 **Target:** 10.64.153.135 (Pickle Rick)
 
-**Tools Used:** Nmap, Gobuster, Nikto, curl, Netcat
+**Tools Used:** Nmap, Gobuster, Nikto, Netcat
 
 **Vulnerability Explored:** OS Command Injection
 
