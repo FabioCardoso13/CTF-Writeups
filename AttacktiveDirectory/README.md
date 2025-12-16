@@ -1,8 +1,11 @@
 # Project: Attacktive Directory Penetration Test (TryHackMe)
 
 **Date:** December 2025
+
 **Target:** 10.67.164.45 (spookysec.local)
+
 **Tools Used:** Nmap, enum4linux, Kerbrute, Impacket (GetNPUsers, secretsdump), Hashcat, smbclient, Evil-WinRM
+
 **Vulnerability Explored:** AS-REP Roasting, Weak SMB Permissions, DCSync (Excessive Privileges)
 
 ## 1\. Executive Summary
