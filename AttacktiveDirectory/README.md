@@ -43,6 +43,7 @@ kerbrute userenum --dc 10.67.164.45 -d spookysec.local userlist.txt
 ### Step 2: Initial Compromise (AS-REP Roasting)
 
 **Vulnerability:** Kerberos Pre-Authentication Disabled
+
 **Severity:** High
 
 **Methodology:**
