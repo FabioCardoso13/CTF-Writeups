@@ -100,10 +100,6 @@ echo "YmFja3VwQHNwb29reXNlYy5sb2NhbDpiYWNrdXAyNTE3ODYw" | base64 -d
 
 **New Credentials:** `backup@spookysec.local` / `backup2517860`
 
-**Flag 1:** `TryHackMe{TELNET_IS_INSECURE}`
-
-**Flag 2:** `TryHackMe{KERBEROS_IS_NOT_INVINICIBLE}`
-
 ### Step 4: Privilege Escalation (DCSync)
 
 **Vulnerability:** Excessive Privileges (DCSync)
@@ -137,9 +133,11 @@ evil-winrm -i 10.67.164.45 -u Administrator -H 0e0363213e37b94221497260b0bcb4fc
 
 **Result:** I successfully obtained a PowerShell session as `spookysec\administrator`.
 
-**Flag 3:** `TryHackMe{SMB_IS_VULNERABLE}`
+**Flag 1 (svc-admin):** `TryHackMe{K3rb3r0s_Pr3_4uth}`
 
-**Final Flag:** `TryHackMe{4DG0D_15_H3R3}`
+**Flag 2 (backup):** `TryHackMe{B4ckM3UpSc0tty!}`
+
+**Flag 3 (Administrator):** `TryHackMe{4ctiveD1rectoryM4st3r}`
 
 ## 3\. Remediation \& Recommendations
 
