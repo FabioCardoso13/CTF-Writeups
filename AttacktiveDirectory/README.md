@@ -11,6 +11,7 @@
 ## 1\. Executive Summary
 
 **Objective:** Conduct a black-box penetration test on the target Active Directory environment to identify vulnerabilities, move laterally through the domain, and escalate privileges to Domain Administrator.
+
 **Result:** The assessment identified critical misconfigurations in the Active Directory environment. An **AS-REP Roasting** attack allowed for initial credential theft. Subsequent lateral movement uncovered sensitive files on an **SMB share**, leading to the compromise of a backup service account. This account held excessive privileges, allowing for a **DCSync attack** to dump all domain credentials, resulting in total domain compromise.
 
 
