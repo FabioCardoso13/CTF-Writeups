@@ -63,7 +63,7 @@ curl -s "http://www.smol.thm/wp-content/plugins/jsmol2wp/php/jsmol.php?isform=tr
 * **Vulnerable Path**: `/wp-content/plugins/jsmol2wp/php/jsmol.php`
 * **Parameter**: `query` (using the php wrapper `php://filter/resource=`)
 
-During enumeration of the WordPress dashboard (likely via a compromised account or public disclosure), I found a critical note:
+During enumeration of the WordPress dashboard, via the compromised database credentials, that worked on the wp-admin login, I found a critical note:
 
 `"\[IMPORTANT] Check Backdoors: Verify the SOURCE CODE of “Hello Dolly” plugin as the site’s code revision."`
 
