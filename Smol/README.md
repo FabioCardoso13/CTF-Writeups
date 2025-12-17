@@ -44,8 +44,11 @@ With the domain resolving, I proceeded to enumerate the WordPress installation a
 ### Step 2: Vulnerability Discovery (LFI \& Backdoor)
 
 **Objective**: exploit web vulnerabilities to gain code execution.
+
 **Vulnerability:** JSmol2WP Local File Inclusion
+
 **Severity:** High
+
 **Methodology:**
 Research on the `jsmol2wp` plugin revealed a known Local File Inclusion (LFI) vulnerability. I used this vulnerability with a `php://filter` to read the contents of the `wp-config.php` file, which contains sensitive database credentials.
 ```bash
